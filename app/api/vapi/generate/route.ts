@@ -1,7 +1,7 @@
 import { generateText } from "ai";
 import { google } from "@ai-sdk/google";
 import { getRandomInterviewCover } from "@/lib/utils";
-import { db } from "@/firebase/admin";
+import { db } from "@/firebaseConfig/admin";
 
 export async function GET() {
   return Response.json({ success: true, data: "THANK YOU!" }, { status: 200 });
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   // If userid is not provided, get current logged in user
   if (!userid) {
     try {
-      const { getCurrentUser } = await import("@/lib/actions/auth.action");
+      const { getCurrentUser } = await import("@/lib/services/auth.action");
       const user = await getCurrentUser();
       userid = user?.id;
       console.log('🔑 Used logged-in user id:', userid);
