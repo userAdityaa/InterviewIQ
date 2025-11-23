@@ -1,7 +1,7 @@
 'use server'
-import {db} from "@/firebase/admin";
+import {db} from "@/firebaseConfig/admin";
 import {generateObject} from "ai";
-import {feedbackSchema} from "@/constants";
+import {feedbackSchema} from "@/appConstants";
 import {google} from "@ai-sdk/google";
 
 export async function getAllInterviews(): Promise<Interview[] | null> {

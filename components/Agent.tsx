@@ -6,8 +6,8 @@ import { cn } from "@/lib/utils";
 import {useRouter} from "next/navigation";
 import { vapi } from '@/lib/vapi.sdk';
 import {id} from "zod/locales";
-import {interviewer} from "@/constants";
-import {createFeedback} from "@/lib/actions/general.action";
+import {interviewer} from "@/appConstants";
+import {createFeedback} from "@/lib/services/general.action";
 
 enum CallStatus {
     INACTIVE = 'INACTIVE',
@@ -30,7 +30,7 @@ interface AgentProps {
   interviewStyle?: string;
 }
 
-const SmartAgent = ({userName, userID, type, interviewId, questions, interviewStyle}: AgentProps) => {
+const Agent = ({userName, userID, type, interviewId, questions, interviewStyle}: AgentProps) => {
         const [videoStream, setVideoStream] = useState<MediaStream | null>(null);
         const videoRef = React.useRef<HTMLVideoElement>(null);
 
@@ -232,4 +232,4 @@ const SmartAgent = ({userName, userID, type, interviewId, questions, interviewSt
         </>
     )
 }
-export default SmartAgent;
+export default Agent;

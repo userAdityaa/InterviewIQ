@@ -2,7 +2,7 @@ import React from 'react'
 import {cn, getTechLogos} from "@/lib/utils";
 import Image from "next/image";
 
-const DisplayTechIcons = async ({ techStack }: TechIconProps ) => {
+const TechStackDisplay = async ({ techStack }: TechIconProps ) => {
     // FIX: Clean the techStack array before sending it to getTechLogos
     // 1. .trim() removes the space from " Power BI"
     // 2. .toLowerCase() turns "Python" into "python" to match your logo file
@@ -22,4 +22,4 @@ const DisplayTechIcons = async ({ techStack }: TechIconProps ) => {
     )
 }
 
-export default DisplayTechIcons;
+export default TechStackDisplay;

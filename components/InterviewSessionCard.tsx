@@ -4,10 +4,10 @@ import Image from "next/image";
 import { getRandomInterviewCover } from "@/lib/utils";
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
-import DisplayTechIcons from "@/components/DisplayTechIcons";
-import {getFeedbackByInterviewId} from "@/lib/actions/general.action";
+import TechStackDisplay from "@/components/TechStackDisplay";
+import {getFeedbackByInterviewId} from "@/lib/services/general.action";
 
-const InterviewCard = async ({ id, userID, role, type, techstack, createdAt }: InterviewCardProps) => {
+const InterviewSessionCard = async ({ id, userID, role, type, techstack, createdAt }: InterviewCardProps) => {
     const feedback= userID && id
         ? await getFeedbackByInterviewId({ interviewId: id, userID}) : null;
     const normalizedType = /mix/gi.test(type) ? 'Mixed' : type;
@@ -42,7 +42,7 @@ const InterviewCard = async ({ id, userID, role, type, techstack, createdAt }: I
                 {feedback?.finalAssessment || "You haven't taken this interview yet. Take it now to improve your skills."}
             </p>
             <div className="flex flex-row justify-between items-center mt-4">
-                <DisplayTechIcons techStack={techstack} />
+                <TechStackDisplay techStack={techstack} />
                 <Button className="bg-[#B5F5EC] text-black font-bold px-6 py-2 rounded-full shadow-md hover:bg-[#2AF598]/80">
                     <Link
                         href={feedback ? `/interview/${id}/feedback` : `/interview/${id}`}
@@ -55,4 +55,4 @@ const InterviewCard = async ({ id, userID, role, type, techstack, createdAt }: I
     );
 }
 
-export default InterviewCard;
+export default InterviewSessionCard;
