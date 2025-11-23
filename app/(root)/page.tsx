@@ -40,10 +40,10 @@ const Page = async () => {
             <section className="flex flex-col items-center justify-center w-[30%] min-w-[400px]">
                 <Image src="/robot.png" alt="AI Robot" width={1100} height={1100} priority className="drop-shadow-2xl w-[50rem] scale-150" />
             </section>
-            {/* Right: Interviews Sidebar - no scroll, fixed width */}
-            <aside className="flex flex-col gap-10 px-12 py-24 w-[32%] min-w-[500px] max-w-[540px]">
-                <h2 className="text-3xl font-bold text-white -mb-6">Your Interviews</h2>
-                <div className="flex flex-col gap-10">
+            {/* Right: Interviews Sidebar - scrollable when content overflows */}
+            <aside className="flex flex-col px-12 pt-32 pb-24 w-[32%] min-w-[500px] max-w-[540px] h-screen overflow-hidden">
+                <h2 className="text-3xl font-bold text-white mb-6 flex-shrink-0">Your Interviews</h2>
+                <div className="flex flex-col gap-10 overflow-y-auto overflow-x-hidden pr-2 flex-1">
                     {hasPastInterviews ? (
                         userInterviews?.map((interview) => (
                             <InterviewSessionCard {...interview} key={interview.id} />
