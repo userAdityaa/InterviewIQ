@@ -2,9 +2,9 @@ import React from 'react'
 import {Button} from "@/components/ui/button";
 import Link from "next/link";
 import Image from "next/image";
-import InterviewCard from "@/components/InterviewCard";
-import {getCurrentUser} from "@/lib/actions/auth.action";
-import {getAllInterviews, getInterviewsByUserId, getLatestInterviews} from "@/lib/actions/general.action";
+import InterviewSessionCard from "@/components/InterviewSessionCard";
+import {getCurrentUser} from "@/lib/services/auth.action";
+import {getAllInterviews, getInterviewsByUserId, getLatestInterviews} from "@/lib/services/general.action";
 
 
 const Page = async () => {
@@ -46,7 +46,7 @@ const Page = async () => {
                 <div className="flex flex-col gap-10">
                     {hasPastInterviews ? (
                         userInterviews?.map((interview) => (
-                            <InterviewCard {...interview} key={interview.id} />
+                            <InterviewSessionCard {...interview} key={interview.id} />
                         ))
                     ) : (
                         <p className="text-gray-400">You haven't taken any interviews yet.</p>

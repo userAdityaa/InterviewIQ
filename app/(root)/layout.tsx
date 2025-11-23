@@ -1,9 +1,9 @@
 import { ReactNode } from 'react'
 import Link from "next/link";
 import Image from "next/image";
-import {isAuthenticated} from "@/lib/actions/auth.action";
+import {isAuthenticated} from "@/lib/services/auth.action";
 import { redirect } from "next/navigation";
-import { logout } from "@/lib/actions/auth.action";
+import { logout } from "@/lib/services/auth.action";
 
 const RootLayout= async ({ children } : { children: ReactNode })=>  {
     const isUserAuthenticated = await isAuthenticated();
