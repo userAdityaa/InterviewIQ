@@ -1,11 +1,11 @@
 import React from 'react'
-import {getInterviewByUserId} from "@/lib/actions/general.action";
+import {getInterviewByUserId} from "@/lib/services/general.action";
 import {redirect} from "next/navigation";
 import Image from "next/image";
 import {getRandomInterviewCover} from "@/lib/utils";
-import DisplayTechIcons from "@/components/DisplayTechIcons";
+import TechStackDisplay from "@/components/TechStackDisplay";
 import Agent from "@/components/Agent";
-import {getCurrentUser} from "@/lib/actions/auth.action";
+import {getCurrentUser} from "@/lib/services/auth.action";
 
 const Page = async ({ params }: RouteParams) => {
     const { id } = await params;
@@ -29,7 +29,7 @@ const Page = async ({ params }: RouteParams) => {
                         <h3 className="capitalize text-green-400 font-bold text-2xl">{interview.role} Interview</h3>
                         <p className="text-xs text-green-300">{interview.type}</p>
                     </div>
-                    <DisplayTechIcons techStack={interview.techstack} />
+                    <TechStackDisplay techStack={interview.techstack} />
                 </div>
             </div>
             <div
