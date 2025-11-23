@@ -1,6 +1,6 @@
 "use server";
 
-import {db, auth} from "@/firebase/admin";
+import {db, auth} from "@/firebaseConfig/admin";
 import {cookies} from "next/headers";
 import { redirect } from "next/navigation";
 
