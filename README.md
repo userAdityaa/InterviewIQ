@@ -1,9 +1,12 @@
-
 # InterviewIQ
 
 InterviewIQ is an AI-powered interview preparation platform designed to help students and professionals practice job interviews with intelligent voice agents. The platform provides personalized interview simulations, instant feedback, and analytics to boost confidence and readiness for real-world interviews.
 
 ---
+
+### Live Deployed URL
+
+https://interview-iq-psi.vercel.app
 
 ## System Design & Architecture
 
@@ -14,19 +17,23 @@ InterviewIQ is a full-stack web application built with Next.js, Firebase, and ad
 ### Architecture Components
 
 **Frontend:**
+
 - Next.js (React) for SSR and fast navigation.
 - Tailwind CSS and shadcn/ui for modern, responsive UI.
 - Authentication and interview management via React context and components.
 
 **Backend:**
+
 - Firebase for authentication, database, and storage.
 - Next.js API routes for interview creation, feedback, and user management.
 
 **AI Integration:**
+
 - Vapi AI Voice Agents for voice-based interview simulation.
 - Google Gemini for advanced AI feedback and transcript analysis.
 
 **Data Flow:**
+
 1. User signs up/signs in via Firebase Authentication.
 2. User creates a mock interview session; questions are generated or selected.
 3. The interview is conducted via a voice agent (Vapi AI), with real-time transcript and feedback.
@@ -59,22 +66,22 @@ InterviewIQ is a full-stack web application built with Next.js, Firebase, and ad
 
 Create a `.env` file in the root directory with the following keys:
 
-| Key | Description |
-|-----|-------------|
-| NEXT_PUBLIC_VAPI_WEB_TOKEN | Vapi AI web token for voice agent integration |
-| NEXT_PUBLIC_VAPI_WORKFLOW_ID | Vapi workflow ID for interview sessions |
-| GOOGLE_GENERATIVE_AI_API_KEY | Google Gemini API key for AI feedback |
-| NEXT_PUBLIC_BASE_URL | Base URL of the application (e.g., http://localhost:3000/) |
-| NEXT_PUBLIC_FIREBASE_API_KEY | Firebase API key for client-side SDK |
-| NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN | Firebase Auth domain |
-| NEXT_PUBLIC_FIREBASE_PROJECT_ID | Firebase project ID |
-| NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET | Firebase storage bucket |
-| NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID | Firebase messaging sender ID |
-| NEXT_PUBLIC_FIREBASE_APP_ID | Firebase app ID |
-| NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID | Firebase analytics measurement ID |
-| FIREBASE_PROJECT_ID | Firebase project ID for admin SDK |
-| FIREBASE_CLIENT_EMAIL | Firebase admin client email |
-| FIREBASE_PRIVATE_KEY | Firebase admin private key (use `\n` for line breaks) |
+| Key                                      | Description                                                |
+| ---------------------------------------- | ---------------------------------------------------------- |
+| NEXT_PUBLIC_VAPI_WEB_TOKEN               | Vapi AI web token for voice agent integration              |
+| NEXT_PUBLIC_VAPI_WORKFLOW_ID             | Vapi workflow ID for interview sessions                    |
+| GOOGLE_GENERATIVE_AI_API_KEY             | Google Gemini API key for AI feedback                      |
+| NEXT_PUBLIC_BASE_URL                     | Base URL of the application (e.g., http://localhost:3000/) |
+| NEXT_PUBLIC_FIREBASE_API_KEY             | Firebase API key for client-side SDK                       |
+| NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN         | Firebase Auth domain                                       |
+| NEXT_PUBLIC_FIREBASE_PROJECT_ID          | Firebase project ID                                        |
+| NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET      | Firebase storage bucket                                    |
+| NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID | Firebase messaging sender ID                               |
+| NEXT_PUBLIC_FIREBASE_APP_ID              | Firebase app ID                                            |
+| NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID      | Firebase analytics measurement ID                          |
+| FIREBASE_PROJECT_ID                      | Firebase project ID for admin SDK                          |
+| FIREBASE_CLIENT_EMAIL                    | Firebase admin client email                                |
+| FIREBASE_PRIVATE_KEY                     | Firebase admin private key (use `\n` for line breaks)      |
 
 ---
 
@@ -82,35 +89,35 @@ Create a `.env` file in the root directory with the following keys:
 
 1. **Clone the repository**
 2. **Install dependencies**
-	```sh
-	npm install
-	```
+   ```sh
+   npm install
+   ```
 3. **Set up Firebase and environment variables**
-	- Create a Firebase project and enable Authentication and Firestore.
-	- Add your credentials to `.env` as described above.
+   - Create a Firebase project and enable Authentication and Firestore.
+   - Add your credentials to `.env` as described above.
 4. **Run locally**
-	```sh
-	npm run dev
-	```
+   ```sh
+   npm run dev
+   ```
 
 ---
 
 ## User Flow
 
 1. **Sign Up:**  
-	New users register using their email and password.
+   New users register using their email and password.
 
 2. **Log In:**  
-	Users log in to access their dashboard and interview history.
+   Users log in to access their dashboard and interview history.
 
 3. **Create Interview Session:**  
-	Users select role, level, tech stack, and interview style, then start a new interview.
+   Users select role, level, tech stack, and interview style, then start a new interview.
 
 4. **Interview Simulation:**  
-	The Vapi AI voice agent conducts the interview, asking questions generated by Google Gemini.
+   The Vapi AI voice agent conducts the interview, asking questions generated by Google Gemini.
 
 5. **Feedback & Analytics:**  
-	After the interview, Gemini analyzes the transcript and provides detailed feedback and scores, which are saved and shown in the dashboard.
+   After the interview, Gemini analyzes the transcript and provides detailed feedback and scores, which are saved and shown in the dashboard.
 
 ---
 
