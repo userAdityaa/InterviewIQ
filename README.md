@@ -1,39 +1,40 @@
+
 # InterviewIQ
 
 InterviewIQ is an AI-powered interview preparation platform designed to help students and professionals practice job interviews with intelligent voice agents. The platform provides personalized interview simulations, instant feedback, and analytics to boost confidence and readiness for real-world interviews.
+
+---
 
 ## System Design & Architecture
 
 ### Overview
 
-InterviewIQ is built as a full-stack web application using modern technologies and best practices. The system is modular, scalable, and optimized for real-time interaction and feedback.
+InterviewIQ is a full-stack web application built with Next.js, Firebase, and advanced AI integrations. The system is modular, scalable, and optimized for real-time interaction and feedback.
 
 ### Architecture Components
 
 **Frontend:**
-
-- Built with Next.js (React framework) for server-side rendering and fast client-side navigation.
-- UI components are styled using Tailwind CSS and shadcn/ui for a modern, responsive experience.
-- Authentication flows and interview management are handled via React components and context.
+- Next.js (React) for SSR and fast navigation.
+- Tailwind CSS and shadcn/ui for modern, responsive UI.
+- Authentication and interview management via React context and components.
 
 **Backend:**
-
-- Uses Firebase for authentication, real-time database, and cloud storage.
-- API routes in Next.js handle interview creation, feedback generation, and user management.
+- Firebase for authentication, database, and storage.
+- Next.js API routes for interview creation, feedback, and user management.
 
 **AI Integration:**
-
-- Vapi AI Voice Agents provide voice-based interview simulation.
-- Google Gemini is used for advanced AI feedback and transcript analysis.
+- Vapi AI Voice Agents for voice-based interview simulation.
+- Google Gemini for advanced AI feedback and transcript analysis.
 
 **Data Flow:**
-
 1. User signs up/signs in via Firebase Authentication.
 2. User creates a mock interview session; questions are generated or selected.
 3. The interview is conducted via a voice agent (Vapi AI), with real-time transcript and feedback.
 4. Feedback and analytics are stored in Firebase and displayed in the user dashboard.
 
-### Key Features
+---
+
+## Key Features
 
 - Secure authentication and user management
 - Voice-based AI interview simulation
@@ -41,23 +42,97 @@ InterviewIQ is built as a full-stack web application using modern technologies a
 - Dashboard for tracking interview history and progress
 - Responsive design for desktop and mobile
 
-### Folder Structure
+---
+
+## Folder Structure
 
 - `/app`: Next.js app directory (routing, pages, API)
 - `/components`: Reusable React components (UI, forms, interview cards)
 - `/lib`: Utility functions, API integrations, and business logic
-- `/firebase`: Firebase client and admin setup
+- `/firebaseConfig`: Firebase client and admin setup
 - `/public`: Static assets (images, icons)
-- `/types`: TypeScript type definitions
+- `/typeDefinitions`: TypeScript type definitions
 
-### Deployment
+---
 
-- InterviewIQ can be deployed on Vercel or any platform supporting Next.js and Firebase.
+## Environment Variables
 
-### Extensibility
+Create a `.env` file in the root directory with the following keys:
 
-- Easily add new interview types, feedback models, or analytics modules
-- Modular component and API design for future enhancements
+| Key | Description |
+|-----|-------------|
+| NEXT_PUBLIC_VAPI_WEB_TOKEN | Vapi AI web token for voice agent integration |
+| NEXT_PUBLIC_VAPI_WORKFLOW_ID | Vapi workflow ID for interview sessions |
+| GOOGLE_GENERATIVE_AI_API_KEY | Google Gemini API key for AI feedback |
+| NEXT_PUBLIC_BASE_URL | Base URL of the application (e.g., http://localhost:3000/) |
+| NEXT_PUBLIC_FIREBASE_API_KEY | Firebase API key for client-side SDK |
+| NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN | Firebase Auth domain |
+| NEXT_PUBLIC_FIREBASE_PROJECT_ID | Firebase project ID |
+| NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET | Firebase storage bucket |
+| NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID | Firebase messaging sender ID |
+| NEXT_PUBLIC_FIREBASE_APP_ID | Firebase app ID |
+| NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID | Firebase analytics measurement ID |
+| FIREBASE_PROJECT_ID | Firebase project ID for admin SDK |
+| FIREBASE_CLIENT_EMAIL | Firebase admin client email |
+| FIREBASE_PRIVATE_KEY | Firebase admin private key (use `\n` for line breaks) |
+
+---
+
+## Getting Started
+
+1. **Clone the repository**
+2. **Install dependencies**
+	```sh
+	npm install
+	```
+3. **Set up Firebase and environment variables**
+	- Create a Firebase project and enable Authentication and Firestore.
+	- Add your credentials to `.env` as described above.
+4. **Run locally**
+	```sh
+	npm run dev
+	```
+
+---
+
+## User Flow
+
+1. **Sign Up:**  
+	New users register using their email and password.
+
+2. **Log In:**  
+	Users log in to access their dashboard and interview history.
+
+3. **Create Interview Session:**  
+	Users select role, level, tech stack, and interview style, then start a new interview.
+
+4. **Interview Simulation:**  
+	The Vapi AI voice agent conducts the interview, asking questions generated by Google Gemini.
+
+5. **Feedback & Analytics:**  
+	After the interview, Gemini analyzes the transcript and provides detailed feedback and scores, which are saved and shown in the dashboard.
+
+---
+
+## Design Decisions
+
+- **Modular Components:** UI and logic are split into reusable components for maintainability.
+- **Serverless Functions:** Next.js API routes handle backend logic, making deployment easy.
+- **AI-Driven Feedback:** Google Gemini provides nuanced, category-based feedback for each interview.
+- **Voice Interaction:** Vapi AI enables realistic, voice-based interview practice.
+- **Security:** Sensitive keys are stored in `.env` and never exposed in the frontend.
+
+---
+
+## Deployment
+
+InterviewIQ can be deployed on Vercel or any platform supporting Next.js and Firebase.
+
+---
+
+## License
+
+MIT
 
 ## Getting Started
 
